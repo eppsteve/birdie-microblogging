@@ -1,0 +1,58 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+   <div class="container">
+        <div class="navbar-header">
+           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+          <a class="navbar-brand" href="#">Birdie</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <form class="navbar-form navbar-right" action="/login" method="POST">
+            <div class="form-group">
+              <input type="text" class="form-control" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-default">Login</button>
+          </form>
+        </div>
+   </div>
+</nav>
+        
+
+<div class="container register-page">
+  {{#if message}}
+  <div  class="alert alert-danger" role="alert" id="message">{{message}}</div>
+  {{/if}}
+  <div class="row">
+    <div class="col-md-7 col-sm-6">
+      <h1>Welcome to Birdie!</h1>
+      <p>If you have not register, sign up for a new account
+      <div class="hidden-xs">
+        <img class="img-responsive" src="http://images.clipartpanda.com/birdie-clipart-black-teal-birdie.svg" width="300px" height="300px"></p>
+      </div>
+    </div>
+
+    <div class="col-md-5 col-sm-6">
+      <form action="/register" method="POST">
+        <div class="form-group">
+          <input type="text"  class="form-control" required placeholder="Email" name="email">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" required placeholder="Username" name="name">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" required placeholder="Password" name="password">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" required placeholder="Re-type password" name="password_confirm">
+        </div>
+          <button type="submit" class="btn btn-default">Sign up</button>
+      </form>
+
+    </div>
+</div>
+

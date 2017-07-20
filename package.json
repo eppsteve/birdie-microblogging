@@ -1,0 +1,19 @@
+{
+    "name":"birdie",
+    "version": "0.0.1",
+    "description": "micro-blogging app",
+    "dependencies": {
+        "express": "*",
+        "express-hbs" :"*",
+        "mongodb": "*",
+        "body-parser": "*", 
+        "express-session":"*", 
+        "connect-busboy": "*", 
+        "express-fileupload": "*", 
+        "passport": "*", 
+        "passport-local": "*", 
+        "cookie-parser": "*",
+        "mongoose": "*",
+        "async": "2.1.1"
+    }
+}

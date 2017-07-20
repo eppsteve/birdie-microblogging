@@ -1,0 +1,82 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/home"><span class="glyphicon glyphicon-home"></span> Home</a>
+            <!--<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-envelope"></span> Messages</a>-->
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><button type="button" class="btn btn-primary navbar-btn btn-tweet" data-toggle="modal" data-target="#myModal">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>  Tweet
+                    </button>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <img class="img-rounded profile-avatar-navbar" src="{{avatar}}"><span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/user/{{username}}"><b>{{username}}</b><br /><small>View Profile</small></a></li>
+                        <li><a href="/settings" >Settings</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#" onclick="logout()" id="btnLogout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+  <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">What's happening?</h4>
+        </div>
+        <div class="modal-body">
+            <textarea rows="5" id="modal-tweet" name="modal-tweet"></textarea>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" id="btn-post-modal" data-dismiss="modal">Tweet</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+<div class="container register-page">
+    {{#if message}}
+    <div class="alert alert-info" role="alert">{{message}}</div>
+    {{/if}}
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Change Avatar</h3>
+            <img class="img-responsive" src="/{{avatar}}" style="width:250px;height:250px;"/>
+            <form action="/upload" enctype="multipart/form-data" method="POST">
+            <div class="form-group">
+                <input type="file" name="file">
+                <input type="hidden" name="photo" value="avatar">
+            </div>
+            <input type="submit" value="Upload">
+            </form>
+        </div>
+        <div class="col-md-7 col-md-offset-1">
+            <h3>Change Cover</h3>
+            <img class="img-responsive" src="/{{cover}}" style="width:100%;height:250px;"/>
+            <form action="/upload" enctype="multipart/form-data" method="POST">
+            <div class="form-group">
+                <input type="file" name="file">
+                <input type="hidden" name="photo" value="cover">
+            </div>
+            <input type="submit" value="Upload">
+            </form>
+        </div>
+    </div>
+</div>
